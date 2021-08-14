@@ -1,16 +1,6 @@
-const Compare = {
-  LESS_THAN: -1,
-  BIGGER_THAN: 1,
-};
+import { defaultEquals, defaultCompare } from "@/utils/index";
 
-function defaultCompare(a, b) {
-  if (a === b) {
-    return 0;
-  }
-  return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
-}
-
-class SortedLinkedList extends LinkList {
+export class SortedLinkedList extends LinkList {
   constructor(equalsFn = defaultEquals, compareFn = defaultCompare) {
     super(equalsFn);
     this.compareFn = compareFn;

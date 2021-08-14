@@ -118,6 +118,12 @@ export class LinkList {
     return this.count;
   }
 
+  // 清空链表
+  clear() {
+    this.head = undefined;
+    this.count = 0;
+  }
+
   // 返回表示整个链表的字符串。由于列表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值。
   toString() {
     if (this.head === null) {
