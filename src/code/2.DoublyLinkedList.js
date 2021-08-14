@@ -88,7 +88,7 @@ export class DoublyLinkedList extends LinkList {
       current.next = null;
     }
     this.count--;
-    return this.current.element;
+    return current.element;
   }
 
   indexOf(element) {
