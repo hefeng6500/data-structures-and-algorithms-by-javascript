@@ -1,10 +1,12 @@
 import { defaultEquals, defaultCompare } from "@/utils/index";
+import { LinkList } from "./1.LinkList";
 
 export class SortedLinkedList extends LinkList {
   constructor(equalsFn = defaultEquals, compareFn = defaultCompare) {
     super(equalsFn);
     this.compareFn = compareFn;
   }
+
   push(element) {
     if (this.count === 0) {
       return super.push(element);
@@ -13,6 +15,7 @@ export class SortedLinkedList extends LinkList {
       return super.insert(element, index);
     }
   }
+  
   insert(element) {
     if (this.count === 0) {
       return super.insert(element, 0);
