@@ -1,3 +1,5 @@
+import { defaultEquals } from "../utils";
+
 /**
  * 1、push(element)：向链表尾部添加一个新元素
  * 2、insert(element, position)：向链表的特定位置插入一个新元素
@@ -11,18 +13,14 @@
  *
  */
 
-function defaultEquals(a, b) {
-  return a === b;
-}
-
-class Node {
+export class Node {
   constructor(element) {
     this.element = element;
     this.next = null;
   }
 }
 
-class LinkList {
+export class LinkList {
   constructor(equalsFn = defaultEquals) {
     this.count = 0;
     this.head = null;
