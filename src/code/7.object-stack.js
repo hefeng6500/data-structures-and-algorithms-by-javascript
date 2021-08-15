@@ -19,6 +19,10 @@ export class Stack {
     return result;
   }
 
+  peek() {
+    return this.items[this.count - 1];
+  }
+
   isEmpty() {
     return this.count === 0;
   }

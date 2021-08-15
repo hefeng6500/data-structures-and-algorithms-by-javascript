@@ -1,5 +1,3 @@
-
-
 export class Stack {
   constructor() {
     this.items = [];
@@ -14,6 +12,10 @@ export class Stack {
       return;
     }
     this.items.pop();
+  }
+
+  peek() {
+    return this.items[this.count - 1];
   }
 
   isEmpty() {
