@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "build-npm": "webpack --mode=production"
   },
   "repository": "https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript.git",
   "author": "hefeng6500 <2443992009@qq.com>",

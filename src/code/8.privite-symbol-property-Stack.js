@@ -1,5 +1,5 @@
 const _items = Symbol("stackItems");
-export class Stack {
+export class SymbolStack {
   constructor() {
     this[_items] = [];
   }
