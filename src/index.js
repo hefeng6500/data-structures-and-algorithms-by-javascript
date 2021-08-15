@@ -3,12 +3,15 @@ import { DoublyLinkedList } from "@/code/2.DoublyLinkedList";
 import { CircularLinkedList } from "@/code/3.CircularLinkedList";
 import { SortedLinkedList } from "@/code/4.SortedLinkedList";
 import { StackLinkedList } from "@/code/5.StackLinkedList";
+import { Stack } from "./code/7.object-stack";
 
-let linklist = new StackLinkedList();
+
+
+let linklist = new Stack();
 
 linklist.push(1);
 linklist.push(2);
 linklist.push(3);
-linklist.pop();
+linklist.clear();
 
 console.log(linklist);
