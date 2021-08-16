@@ -9,16 +9,15 @@ import { SymbolStack } from "./code/8.privite-symbol-property-Stack";
 import { WeakMapStack } from "./code/9.privite-weakmap-property-Stack";
 import { DoublyCircularLinkedList } from "./code/10.DoublyCircularLinkList";
 import { defaultCompare, defaultEquals, Compare } from "./utils/index";
+import { Set } from "./code/13.Set";
 
-let res = new DoublyCircularLinkedList();
-res.push(1);
-res.push(2);
-res.push(3);
-res.push(4);
-res.push(5);
+let res = new Set();
+res.add(1)
+res.add(2)
+res.add(3)
+res.delete(3)
 
-console.log(res.toString());
-console.log(res.inverseToString());
+console.log(res);
 
 export {
   LinkList,
