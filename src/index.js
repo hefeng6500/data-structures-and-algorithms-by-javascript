@@ -10,14 +10,21 @@ import { WeakMapStack } from "./code/9.privite-weakmap-property-Stack";
 import { DoublyCircularLinkedList } from "./code/10.DoublyCircularLinkList";
 import { defaultCompare, defaultEquals, Compare } from "./utils/index";
 import { Set } from "./code/13.Set";
+import { HashTable } from "./code/15.HashTable";
 
-let res = new Set();
-res.add(1)
-res.add(2)
-res.add(3)
-res.delete(3)
+const hash = new HashTable();
+hash.put('Gandalf', 'gandalf@email.com');
+hash.put('John', 'johnsnow@email.com');
+hash.put('Tyrion', 'tyrion@email.com');
 
-console.log(res);
+console.log(hash);
+
+console.log(hash.hashCode('Gandalf') + ' - Gandalf');
+console.log(hash.hashCode('John') + ' - John');
+console.log(hash.hashCode('Tyrion') + ' - Tyrion');
+
+console.log(hash.get('Gandalf')); // gandalf@email.com
+console.log(hash.get('Loiane')); // undefined
 
 export {
   LinkList,
