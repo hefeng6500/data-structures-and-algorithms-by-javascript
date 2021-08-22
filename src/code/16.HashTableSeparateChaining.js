@@ -1,6 +1,7 @@
 import { LinkList } from "./1.LinkList";
 import { defaultToString, ValuePair } from "./14.Dictionary";
 
+// 散列表分离链接
 export class HashTableSeparateChaining {
   constructor(toStrFn = defaultToString) {
     this.toStrFn = toStrFn;
