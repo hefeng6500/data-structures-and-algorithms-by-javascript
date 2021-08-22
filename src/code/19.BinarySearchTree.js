@@ -160,7 +160,7 @@ export class BinarySearchTree {
       let aux = this.minNode(node.right);
       node.key = aux.key;
 
-      // 填补空缺后，从右侧子树中移除最小的即诶是哪
+      // 填补空缺后，从右侧子树中移除最小的节点
       node.right = this.removeNode(node.right, aux.key);
       return node;
     }
