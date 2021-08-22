@@ -88,7 +88,7 @@ export class BinarySearchTree {
     while (current.left != null) {
       current = current.left;
     }
-    return current.key;
+    return current;
   }
 
   // max()：返回树中最大的值/键。
@@ -101,7 +101,7 @@ export class BinarySearchTree {
     while (current.right != null) {
       current = current.right;
     }
-    return current.key;
+    return current;
   }
 
   // search(key)：在树中查找一个键。如果节点存在，则返回 true；如果不存在，则返回 false。
@@ -123,5 +123,46 @@ export class BinarySearchTree {
   }
 
   // remove(key)：从树中移除某个键
-  remove(key) {}
+  remove(key) {
+    this.removeNode(this.root, key);
+  }
+
+  removeNode(node, key) {
+    if (node == null) {
+      return null;
+    }
+    if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+      node.left = this.removeNode(node.left, key);
+      return node;
+    } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    } else {
+      // case 1: 无子树时，直接将 node 置为 null，并且 return null，使得调用栈获取移除 key 后的树结构数据
+      if (node.left == null && node.right == null) {
+        node = null;
+        return node;
+      }
+      // case 2: 移除中间层的树。
+      if (node.left == null) {
+        // 当前键没有左子树，只有右子树，
+        // node = node.right 就是让中间层节点等于右子树节点。return node 中间层树的父级指向了中间层的右子树
+        node = node.right;
+        return node;
+      } else if (node.right == null) {
+        // 当前键没有右子树，只有左子树，
+        // node = node.left 就是让中间层节点等于左子树节点。return node 中间层树的父级指向了中间层的左子树
+        node = node.left;
+        return node;
+      }
+      // case 3: 移除靠近树顶部的键（离 root 很近的键）
+      // 需要找到当前键右子树的最小键，目的就是为了填补当前键被移除后的空缺
+      let aux = this.minNode(node.right);
+      node.key = aux.key;
+
+      // 填补空缺后，从右侧子树中移除最小的即诶是哪
+      node.right = this.removeNode(node.right, aux.key);
+      return node;
+    }
+  }
 }

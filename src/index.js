@@ -11,20 +11,43 @@ import { DoublyCircularLinkedList } from "./code/10.DoublyCircularLinkList";
 import { defaultCompare, defaultEquals, Compare } from "./utils/index";
 import { Set } from "./code/13.Set";
 import { HashTable } from "./code/15.HashTable";
+import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing";
+import { BinarySearchTree } from "./code/19.BinarySearchTree";
 
-const hash = new HashTable();
-hash.put('Gandalf', 'gandalf@email.com');
-hash.put('John', 'johnsnow@email.com');
-hash.put('Tyrion', 'tyrion@email.com');
+const tree = new BinarySearchTree();
 
-console.log(hash);
+tree.insert(11);
+tree.insert(7);
+tree.insert(15);
+tree.insert(5);
+tree.insert(3);
+tree.insert(9);
+tree.insert(8);
+tree.insert(10);
+tree.insert(13);
+tree.insert(12);
+tree.insert(14);
+tree.insert(20);
+tree.insert(18);
+tree.insert(25);
 
-console.log(hash.hashCode('Gandalf') + ' - Gandalf');
-console.log(hash.hashCode('John') + ' - John');
-console.log(hash.hashCode('Tyrion') + ' - Tyrion');
+tree.insert(6);
 
-console.log(hash.get('Gandalf')); // gandalf@email.com
-console.log(hash.get('Loiane')); // undefined
+console.log(tree);
+
+const printNode = (value) => console.log(value);
+
+tree.postOrderTraverse(printNode)
+
+console.log('min', tree.min());
+console.log('max', tree.max());
+
+console.log(tree.search(1) ? 'Key 1 found.' : 'Key 1 not found.');
+console.log(tree.search(8) ? 'Key 8 found.' : 'Key 8 not found.');
+
+tree.remove(15)
+
+console.log(tree);
 
 export {
   LinkList,
