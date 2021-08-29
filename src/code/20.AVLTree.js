@@ -6,7 +6,6 @@ import { Node } from "./19.BinarySearchTree";
 export class AVLTree extends BinarySearchTree {
   constructor(compareFn = defaultCompare) {
     super(compareFn);
-    this.root = null;
   }
 
   // 获取节点高度
