@@ -70,3 +70,8 @@ export const BalanceFactor = {
   SLIGHTLY_UNBALANCED_LEFT: 4,
   UNBALANCED_LEFT: 5,
 };
+
+export const Colors = {
+  RED: "red",
+  BLACK: "black",
+};

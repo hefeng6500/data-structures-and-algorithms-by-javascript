@@ -13,18 +13,22 @@ import { Set } from "./code/13.Set";
 import { HashTable } from "./code/15.HashTable";
 import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing";
 import { BinarySearchTree } from "./code/19.BinarySearchTree";
-import {AVLTree} from "./code/20.AVLTree"
+import { AVLTree } from "./code/20.AVLTree";
+import { RedBlackTree } from "./code/21.RedBlackTree";
 
-// 测试 avl 右侧的单旋转
-const tree = new AVLTree();
-window.tree = tree
+// 测试 红黑树旋转
+const tree = new RedBlackTree();
+window.tree = tree;
 tree.insert(50);
 tree.insert(30);
 tree.insert(70);
 tree.insert(10);
 tree.insert(40);
-// 节点 5 的插入会导致树的失衡，导致触发树旋转，所以这行代码可以用来 debugger 调试左-左：右旋转的逻辑
-// tree.insert(5); 
+tree.insert(35);
+tree.insert(48);
+debugger
+tree.insert(46);
+
 console.log(tree);
 
 export {
