@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-08-29T14:28:54.550Z",
+    "end": "2021-08-29T14:28:54.646Z",
+    "duration": 96,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9bbe9eae-b01c-4dc0-a8c4-1f76d976c9ce",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f4775cb6-6352-48e3-a25a-8f1b7ff5083d",
+          "title": "test",
+          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\example.spec.js",
+          "file": "\\test\\example.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "first test",
+              "fullTitle": "test first test",
+              "timedOut": false,
+              "duration": 44,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 测试 红黑树旋转\nconst tree = new RedBlackTree();\ntree.insert(50);\ntree.insert(30);\ntree.insert(70);\ntree.insert(10);\ntree.insert(40);\ntree.insert(35);\ntree.insert(48);\ntree.insert(46);\nconsole.log(tree);",
+              "err": {},
+              "uuid": "d6770362-2c2a-426d-8e4e-54a26170ede6",
+              "parentUUID": "f4775cb6-6352-48e3-a25a-8f1b7ff5083d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d6770362-2c2a-426d-8e4e-54a26170ede6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 44,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}

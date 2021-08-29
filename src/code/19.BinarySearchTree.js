@@ -1,4 +1,4 @@
-import { Compare, defaultCompare } from "@/index";
+import { Compare, defaultCompare } from "../utils/index.js";
 
 export class Node {
   constructor(key) {

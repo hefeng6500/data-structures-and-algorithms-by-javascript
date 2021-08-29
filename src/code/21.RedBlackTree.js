@@ -1,6 +1,6 @@
-import { defaultCompare } from "@/index";
-import { Colors, Compare } from "@/utils/index";
-import { Node, BinarySearchTree } from "./19.BinarySearchTree";
+import { defaultCompare } from "../utils/index.js";
+import { Colors, Compare } from "../utils/index.js";
+import { Node, BinarySearchTree } from "./19.BinarySearchTree.js";
 
 export class RedBlackNode extends Node {
   constructor(key) {

@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "algorithms",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "webpack serve --open",
     "build": "webpack",
-    "build-npm": "webpack --mode=production"
+    "build-npm": "webpack",
+    "test": "mocha --require @babel/register ./test/*.js --reporter mochawesome && cd mochawesome-report/ && http-server -a 127.0.0.1 --port 3000 -o /mochawesome.html"
   },
   "repository": "https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript.git",
   "author": "hefeng6500 <2443992009@qq.com>",
@@ -15,12 +17,19 @@
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "@types/mocha": "^9.0.0",
     "babel-loader": "^8.2.2",
+    "chai": "^4.3.4",
     "html-webpack-plugin": "^5.3.2",
+    "http-server": "^13.0.1",
+    "mocha": "^9.1.1",
+    "mochawesome": "^6.2.2",
     "ts-loader": "^9.2.5",
     "typescript": "^4.3.5",
     "webpack": "^5.50.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "dependencies": {}
 }
