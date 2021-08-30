@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -15,12 +14,12 @@ module.exports = {
     filename: "algorithms.js",
   },
   resolve: {
-    // alias: {
-    //   "@": path.resolve(__dirname, "src"),
-    //   "@code": path.resolve(__dirname, "src/code"),
-    //   "@utils": path.resolve(__dirname, "src/utils"),
-    // },
-    extensions: [".ts", ".tsx", ".js"]
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@code": path.resolve(__dirname, "src/code"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+    },
+    extensions: [".ts", ".tsx", ".js"],
   },
   module: {
     rules: [
@@ -34,7 +33,7 @@ module.exports = {
           },
         },
       },
-      { test: /\.tsx?$/, loader: "ts-loader" }
+      { test: /\.tsx?$/, loader: "ts-loader" },
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
