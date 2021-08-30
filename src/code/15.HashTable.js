@@ -2,8 +2,8 @@
 // remove(key)：根据键值从散列表中移除值。
 // get(key)：返回根据键值检索到的特定的值。
 
-import { defaultToString } from "@/utils/index";
-import { ValuePair } from "./14.Dictionary";
+import { defaultToString } from "../utils/index.js";
+import { ValuePair } from "./14.Dictionary.js";
 
 export class HashTable {
   constructor(toStrFn = defaultToString) {

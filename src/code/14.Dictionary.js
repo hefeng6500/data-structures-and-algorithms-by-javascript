@@ -10,7 +10,7 @@
 // 10. keyValues()：将字典中所有[键，值]对返回。
 // 11. forEach(callbackFn)：迭代字典中所有的键值对。callbackFn 有两个参数：key 和 value。该方法可以在回调函数返回false 时被中止（和Array 类中的every 方法相似）。
 
-import { defaultToString } from "@/utils/index";
+import { defaultToString } from "../utils/index.js";
 
 export class ValuePair {
   constructor(key, value) {

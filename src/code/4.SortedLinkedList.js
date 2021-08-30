@@ -1,5 +1,5 @@
-import { defaultEquals, defaultCompare } from "@/utils/index";
-import { LinkList } from "./1.LinkList";
+import { defaultEquals, defaultCompare } from "../utils/index.js";
+import { LinkList } from "./1.LinkList.js";
 
 export class SortedLinkedList extends LinkList {
   constructor(equalsFn = defaultEquals, compareFn = defaultCompare) {

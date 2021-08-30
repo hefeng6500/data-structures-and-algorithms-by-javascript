@@ -8,6 +8,7 @@
     "dev": "webpack serve --open",
     "build": "webpack",
     "build-npm": "webpack",
+    "test:view": "cd mochawesome-report/ && http-server -a 127.0.0.1 --port 3000 -o /mochawesome.html -w",
     "test": "mocha --require @babel/register ./test/*.js --reporter mochawesome && cd mochawesome-report/ && http-server -a 127.0.0.1 --port 3000 -o /mochawesome.html"
   },
   "repository": "https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript.git",
@@ -27,9 +28,13 @@
     "mochawesome": "^6.2.2",
     "ts-loader": "^9.2.5",
     "typescript": "^4.3.5",
-    "webpack": "^5.50.0",
+    "webpack": "^5.51.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "extension": [
+    ".ts",
+    ".js"
+  ]
 }

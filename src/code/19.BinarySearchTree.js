@@ -47,7 +47,7 @@ export class BinarySearchTree {
   inOrderTraverseNode(node, callback) {
     if (node != null) {
       this.inOrderTraverseNode(node.left, callback);
-      callback(node.key);
+      callback(node);
       this.inOrderTraverseNode(node.right, callback);
     }
   }
@@ -59,7 +59,7 @@ export class BinarySearchTree {
 
   preOrderTraverseNode(node, callback) {
     if (node != null) {
-      callback(node.key);
+      callback(node);
       this.preOrderTraverseNode(node.left, callback);
       this.preOrderTraverseNode(node.right, callback);
     }
@@ -74,7 +74,7 @@ export class BinarySearchTree {
     if (node != null) {
       this.postOrderTraverseNode(node.left, callback);
       this.postOrderTraverseNode(node.right, callback);
-      callback(node.key);
+      callback(node);
     }
   }
 

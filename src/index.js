@@ -1,20 +1,20 @@
-import { LinkList, Node } from "@/code/1.LinkList";
-import { DoublyLinkedList, DoublyNode } from "@/code/2.DoublyLinkedList";
-import { CircularLinkedList } from "@/code/3.CircularLinkedList";
-import { SortedLinkedList } from "@/code/4.SortedLinkedList";
-import { StackLinkedList } from "@/code/5.StackLinkedList";
-import { Stack } from "./code/6.array-stack";
-import { ObjectStack } from "./code/7.object-stack";
-import { SymbolStack } from "./code/8.privite-symbol-property-Stack";
-import { WeakMapStack } from "./code/9.privite-weakmap-property-Stack";
-import { DoublyCircularLinkedList } from "./code/10.DoublyCircularLinkList";
-import { defaultCompare, defaultEquals, Compare } from "./utils/index";
-import { Set } from "./code/13.Set";
-import { HashTable } from "./code/15.HashTable";
-import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing";
-import { BinarySearchTree } from "./code/19.BinarySearchTree";
-import { AVLTree } from "./code/20.AVLTree";
-import { RedBlackTree } from "./code/21.RedBlackTree";
+import { LinkList, Node } from "./code/1.LinkList.js";
+import { DoublyLinkedList, DoublyNode } from "./code/2.DoublyLinkedList.js";
+import { CircularLinkedList } from "./code/3.CircularLinkedList.js";
+import { SortedLinkedList } from "./code/4.SortedLinkedList.js";
+import { StackLinkedList } from "./code/5.StackLinkedList.js";
+import { Stack } from "./code/6.array-stack.js";
+import { ObjectStack } from "./code/7.object-stack.js";
+import { SymbolStack } from "./code/8.privite-symbol-property-Stack.js";
+import { WeakMapStack } from "./code/9.privite-weakmap-property-Stack.js";
+import { DoublyCircularLinkedList } from "./code/10.DoublyCircularLinkList.js";
+import { defaultCompare, defaultEquals, Compare } from "./utils/index.js";
+import { Set } from "./code/13.Set.js";
+import { HashTable } from "./code/15.HashTable.js";
+import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing.js";
+import { BinarySearchTree } from "./code/19.BinarySearchTree.js";
+import { AVLTree } from "./code/20.AVLTree.js";
+import { RedBlackTree } from "./code/21.RedBlackTree.js";
 
 // 测试 红黑树旋转
 const tree = new RedBlackTree();

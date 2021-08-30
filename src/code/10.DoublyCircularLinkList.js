@@ -1,5 +1,5 @@
-import { defaultEquals } from "@/utils/index";
-import { DoublyLinkedList, DoublyNode } from "./2.DoublyLinkedList";
+import { defaultEquals } from "../utils/index.js";
+import { DoublyLinkedList, DoublyNode } from "./2.DoublyLinkedList.js";
 
 export class DoublyCircularLinkedList extends DoublyLinkedList {
   constructor(equalsFn = defaultEquals) {

@@ -1,5 +1,5 @@
-import { defaultEquals } from "@/utils/index";
-import { DoublyLinkedList } from "./2.DoublyLinkedList";
+import { defaultEquals } from "../utils/index.js";
+import { DoublyLinkedList } from "./2.DoublyLinkedList.js";
 
 export class StackLinkedList {
   constructor(equalsFn = defaultEquals) {

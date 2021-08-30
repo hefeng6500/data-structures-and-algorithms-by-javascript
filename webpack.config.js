@@ -15,11 +15,11 @@ module.exports = {
     filename: "algorithms.js",
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-      "@code": path.resolve(__dirname, "src/code"),
-      "@utils": path.resolve(__dirname, "src/utils"),
-    },
+    // alias: {
+    //   "@": path.resolve(__dirname, "src"),
+    //   "@code": path.resolve(__dirname, "src/code"),
+    //   "@utils": path.resolve(__dirname, "src/utils"),
+    // },
     extensions: [".ts", ".tsx", ".js"]
   },
   module: {

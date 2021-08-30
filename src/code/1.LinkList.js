@@ -1,4 +1,4 @@
-import { defaultEquals } from "../utils";
+import { defaultEquals } from "../utils/index.js";
 
 /**
  * 1、push(element)：向链表尾部添加一个新元素

@@ -1,5 +1,5 @@
-import { defaultToString } from "@/utils/index";
-import { ValuePair } from "./14.Dictionary";
+import { defaultToString } from "../utils/index.js";
+import { ValuePair } from "./14.Dictionary.js";
 
 // 散列表线性探查
 export class HashTableLinearProbing {

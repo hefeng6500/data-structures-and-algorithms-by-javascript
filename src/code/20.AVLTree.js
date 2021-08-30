@@ -1,7 +1,6 @@
-import { defaultCompare, Compare } from "@/index";
-import { BalanceFactor } from "@/utils/index";
-import { BinarySearchTree } from "./19.BinarySearchTree";
-import { Node } from "./19.BinarySearchTree";
+import { defaultCompare, Compare } from "../utils/index.js";
+import { BalanceFactor } from "../utils/index.js";
+import { BinarySearchTree, Node } from "./19.BinarySearchTree.js";
 
 export class AVLTree extends BinarySearchTree {
   constructor(compareFn = defaultCompare) {
