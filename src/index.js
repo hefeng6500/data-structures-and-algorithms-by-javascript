@@ -15,21 +15,15 @@ import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing.js";
 import { BinarySearchTree } from "./code/19.BinarySearchTree.js";
 import { AVLTree } from "./code/20.AVLTree.js";
 import { RedBlackTree } from "./code/21.RedBlackTree.js";
+import { MinHeap } from "./code/22.minHeap.js";
 
-// 测试 红黑树旋转
-const tree = new RedBlackTree();
-window.tree = tree;
-tree.insert(50);
-tree.insert(30);
-tree.insert(70);
-tree.insert(10);
-tree.insert(40);
-tree.insert(35);
-tree.insert(48);
-debugger
-tree.insert(46);
+let heap = new MinHeap();
+for (let i = 1; i < 10; i++) {
+  heap.insert(i);
+}
 
-console.log(tree);
+console.log("Extract minimum: ", heap.extract()); // 1
+console.log(heap);
 
 export {
   LinkList,
