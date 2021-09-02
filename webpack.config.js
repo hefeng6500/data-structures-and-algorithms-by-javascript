@@ -36,5 +36,5 @@ module.exports = {
       { test: /\.tsx?$/, loader: "ts-loader" },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [new HtmlWebpackPlugin()],
 };
