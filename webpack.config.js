@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   devServer: {
-    contentBase: "./dist",
+    static: "./dist",
     hot: true,
   },
   entry: "./src/index.js",
@@ -25,7 +25,7 @@ module.exports = {
     rules: [
       {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
@@ -36,5 +36,9 @@ module.exports = {
       { test: /\.tsx?$/, loader: "ts-loader" },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
 };
