@@ -5,10 +5,10 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   devServer: {
-    contentBase: "./dist",
+    static: "./dist",
     hot: true,
   },
-  entry: "./src/index.js",
+  entry: "./src/main.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "algorithms.js",
