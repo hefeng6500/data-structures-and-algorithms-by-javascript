@@ -45,5 +45,6 @@
   },
   "dependencies": {
     "typescript": "^4.4.2"
-  }
+  },
+  "files": ["dist", "README.md"]
 }
