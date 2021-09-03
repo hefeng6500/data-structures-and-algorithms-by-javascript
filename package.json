@@ -6,14 +6,23 @@
     "dev": "webpack serve --open",
     "build": "webpack",
     "test:view": "cd mochawesome-report/ && http-server -a 127.0.0.1 --port 3000 -o /mochawesome.html -w",
-    "test": "mochapack --webpack-config webpack.config-test.js --require \"test/*.spec.js\" --reporter mochawesome"
+    "test": "mocha --require @babel/register --spec 'test/*.spec.js' --reporter mochawesome"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
   },
   "repository": "https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript.git",
   "author": "hefeng6500 <2443992009@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/register": "^7.15.3",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.4",
     "html-webpack-plugin": "^5.3.2",

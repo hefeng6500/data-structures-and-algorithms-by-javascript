@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "suites": 3,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2021-09-02T13:40:13.106Z",
-    "end": "2021-09-02T13:40:13.120Z",
-    "duration": 14,
-    "testsRegistered": 1,
+    "start": "2021-09-03T12:18:22.466Z",
+    "end": "2021-09-03T12:18:22.486Z",
+    "duration": 20,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "20e20736-53fc-4843-97f7-29dcf3bf2be2",
+      "uuid": "514cb9ff-e29b-422d-948d-60b801d05b98",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,10 +27,10 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0f84cc95-c21c-47a3-816c-39378e91d87e",
+          "uuid": "67b02ff2-ea86-430f-bd5f-e9291e7aa406",
           "title": "Test Demo",
-          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\dist\\algorithms.js",
-          "file": "\\dist\\algorithms.js",
+          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\demo.spec.js",
+          "file": "\\test\\demo.spec.js",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
@@ -45,22 +45,80 @@
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "(0,chai__WEBPACK_IMPORTED_MODULE_1__.expect)(1 + 1).to.equal(2);",
+              "code": "(0, _chai.expect)((0, _src.test)(1, 1)).to.equal(2);",
               "err": {},
-              "uuid": "5fb3c077-ad32-4d9b-932c-fea6c07139fb",
-              "parentUUID": "0f84cc95-c21c-47a3-816c-39378e91d87e",
+              "uuid": "91400f69-4ee8-4c1f-9374-cd5f9187feb5",
+              "parentUUID": "67b02ff2-ea86-430f-bd5f-e9291e7aa406",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5fb3c077-ad32-4d9b-932c-fea6c07139fb"
+            "91400f69-4ee8-4c1f-9374-cd5f9187feb5"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
           "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4dd6f407-02e4-49df-993f-02815c531892",
+          "title": "Array",
+          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\demo.spec.js",
+          "file": "\\test\\demo.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "399102f7-3669-4046-b4ca-edc029c00d0d",
+              "title": "#indexOf()",
+              "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\demo.spec.js",
+              "file": "\\test\\demo.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return -1 when the value is not present",
+                  "fullTitle": "Array #indexOf() should return -1 when the value is not present",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "assert.equal([1, 2, 3].indexOf(4), -1);",
+                  "err": {},
+                  "uuid": "676e7a45-c258-429e-9145-13e097cd30bb",
+                  "parentUUID": "399102f7-3669-4046-b4ca-edc029c00d0d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "676e7a45-c258-429e-9145-13e097cd30bb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
