@@ -8,8 +8,9 @@
     "test:view": "cd mochawesome-report/ && http-server -a 127.0.0.1 --port 3000 -o /mochawesome.html -w",
     "test:mocha": "mocha --require @babel/register --spec 'test/*.spec.js' --reporter mochawesome",
     "test": "jest --reporters=\"default\" --reporters=\"jest-html-reporters\"",
-    "release": "standard-version && npm run publish",
-    "publish": "git push --follow-tags origin master && npm publish"
+    "release": "standard-version && npm run deploy",
+    "deploy": "git push --follow-tags origin master",
+    "publish": "npm publish"
   },
   "babel": {
     "presets": [
