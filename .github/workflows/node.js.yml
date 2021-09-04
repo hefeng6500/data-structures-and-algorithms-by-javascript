@@ -28,7 +28,8 @@ jobs:
     
   Build:
     needs: Test
-    permissions: read-all|write-all
+    permissions:
+      actions: write
     runs-on: ubuntu-latest
     strategy:
       matrix:
