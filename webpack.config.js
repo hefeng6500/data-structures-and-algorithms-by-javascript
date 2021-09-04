@@ -8,7 +8,7 @@ module.exports = {
     static: "./dist",
     hot: true,
   },
-  entry: "./src/main.ts",
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "algorithms.js",
