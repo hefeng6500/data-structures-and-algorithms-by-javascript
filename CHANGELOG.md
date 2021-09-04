@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.3.0...v3.4.0) (2021-09-04)
+
+
+### Features
+
+* test ([6dd5e96](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/6dd5e96aa5a39d79fbfc4316037a032624c92b2d))
+
 # [3.3.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.2.4...v3.3.0) (2021-09-04)
 
 
