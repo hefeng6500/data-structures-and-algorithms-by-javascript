@@ -1,1 +1,1 @@
-export test1 = () => {}
+export const test1 = () => {}
