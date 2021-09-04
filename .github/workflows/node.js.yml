@@ -55,3 +55,6 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: npm publish
+    
+    env: 
+      INPUT_TOKEN: ''
