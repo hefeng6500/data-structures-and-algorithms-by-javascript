@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.2](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.2.1...v3.2.2) (2021-09-04)
+
+
+### Bug Fixes
+
+* fixed package.json ([bc25d62](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/bc25d629f9dc1b8eb4cba245509589b2a7015141))
+
 ### [3.2.1](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.2.0...v3.2.1) (2021-09-04)
 
 
