@@ -1,6 +1,6 @@
 {
   "name": "data-structures-and-algorithms-by-javascript",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --open",
