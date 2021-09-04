@@ -38,7 +38,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm build
-    - run: npm release
+    - run: npm run release
     
   publish:
     needs: build
