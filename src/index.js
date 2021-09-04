@@ -18,7 +18,6 @@ import { RedBlackTree } from "./code/21.RedBlackTree.js";
 import { MinHeap } from "./code/22.minHeap.js";
 
 let heap = new MinHeap();
-
 for (let i = 1; i < 10; i++) {
   heap.insert(i);
 }
