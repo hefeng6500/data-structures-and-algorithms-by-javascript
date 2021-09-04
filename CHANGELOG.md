@@ -1,3 +1,14 @@
+## [3.4.3](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.4.2...v3.4.3) (2021-09-04)
+
+
+### Bug Fixes
+
+* 1 ([9e309eb](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/9e309eb1a6934694d6aa1f40cb6dc4d990fea5f5))
+* 123 ([7992cb7](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/7992cb7f15562caeb592e27f4290c03057193330))
+* 1234 ([8a9166a](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/8a9166a427670584288d593974c2bf26970aa55e))
+* 2 ([ae46dc3](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/ae46dc339746d7536a332c2c8af561ef7caeace3))
+* modify ([6af21d5](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/6af21d53881697f4f1974abede14c9da63f18f44))
+
 ## [3.4.2](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.4.1...v3.4.2) (2021-09-04)
 
 
