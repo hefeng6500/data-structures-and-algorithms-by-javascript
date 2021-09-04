@@ -1,3 +1,10 @@
+## [3.4.2](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.4.1...v3.4.2) (2021-09-04)
+
+
+### Bug Fixes
+
+* config ([04f8392](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/04f83924c216a072c6c834c4ee63ae920c2354bd))
+
 ## [3.4.1](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.4.0...v3.4.1) (2021-09-04)
 
 
