@@ -28,7 +28,9 @@ jobs:
     
   Build:
     needs: Test
-    permissions: read-all|write-all
+    permissions:
+      actions: write
+
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -39,9 +41,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm build
-    - run: npm run release
+      run: |
+        npm install
+        npm build
+        git config user.name "hefeng6500"
+        git config user.email "2443992009@qq.com"
+        npm run release
     
   Publish:
     needs: Build
