@@ -1,6 +1,6 @@
 {
   "name": "data-structures-and-algorithms-by-javascript",
-  "version": "3.2.8",
+  "version": "3.2.7",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --open",
@@ -9,7 +9,8 @@
     "test:mocha": "mocha --require @babel/register --spec 'test/*.spec.js' --reporter mochawesome",
     "test": "jest --reporters=\"default\" --reporters=\"jest-html-reporters\"",
     "release": "standard-version",
-    "deploy": "git push --follow-tags origin master"
+    "push:master": "git push --follow-tags origin master",
+    "deploy": "npm publish"
   },
   "babel": {
     "presets": [
