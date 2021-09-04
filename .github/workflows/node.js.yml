@@ -30,7 +30,6 @@ jobs:
     needs: Test
     permissions:
       actions: write
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
