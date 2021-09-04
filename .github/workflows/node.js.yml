@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  install:
+  Test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,8 +25,8 @@ jobs:
     - run: npm ci
     - run: npm test
     
-  build:
-    needs: install
+  Build:
+    needs: Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,11 +37,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+    - run: npm install
     - run: npm build
     - run: npm run release
     
-  publish:
-    needs: build
+  Publish:
+    needs: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
