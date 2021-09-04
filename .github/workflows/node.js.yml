@@ -37,7 +37,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm build
+    - run: npm run build
+    - run: npm run release
     
   publish:
     needs: build
