@@ -15,15 +15,8 @@ import { HashTableLinearProbing } from "./code/17.HashTableLinearProbing.js";
 import { BinarySearchTree } from "./code/19.BinarySearchTree.js";
 import { AVLTree } from "./code/20.AVLTree.js";
 import { RedBlackTree } from "./code/21.RedBlackTree.js";
-import { MinHeap } from "./code/22.minHeap.js";
+import { MaxHeap, MinHeap } from "./code/22.MinHeap.js";
 
-let heap = new MinHeap();
-for (let i = 1; i < 10; i++) {
-  heap.insert(i);
-}
-
-console.log("Extract minimum: ", heap.extract()); // 1
-console.log(heap);
 
 export {
   LinkList,

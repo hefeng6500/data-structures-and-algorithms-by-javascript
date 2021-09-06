@@ -81,3 +81,7 @@ export const swap = (array, a, b) => {
   array[a] = array[b];
   array[b] = temp;
 };
+
+export const reverseCompare = (compareFn) => {
+  return (a, b) => compareFn(b, a);
+};

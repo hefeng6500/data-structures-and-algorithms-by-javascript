@@ -1,4 +1,4 @@
-import { defaultCompare, swap, Compare } from "../utils/index.js";
+import { defaultCompare, swap, Compare, reverseCompare } from "../utils/index.js";
 
 export class MinHeap {
   constructor(compareFn = defaultCompare) {
@@ -98,5 +98,13 @@ export class MinHeap {
   // 返回最小值（最小堆）或最大值（最大堆）且不会移除这个值
   findMinimum() {
     return this.isEmpty() ? undefined : this.heap[0];
+  }
+}
+
+// 最大堆
+export class MaxHeap extends MinHeap {
+  constructor(compareFn = defaultCompare) {
+    super(compareFn);
+    this.compareFn = reverseCompare(compareFn);
   }
 }
