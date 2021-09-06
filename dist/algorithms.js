@@ -1733,17 +1733,34 @@ var RedBlackTree = /*#__PURE__*/function (_BinarySearchTree) {
 
 /***/ }),
 
-/***/ "./src/code/22.minHeap.js":
+/***/ "./src/code/22.MinHeap.js":
 /*!********************************!*\
-  !*** ./src/code/22.minHeap.js ***!
+  !*** ./src/code/22.MinHeap.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "MinHeap": () => (/* binding */ MinHeap)
+/* harmony export */   "MinHeap": () => (/* binding */ MinHeap),
+/* harmony export */   "MaxHeap": () => (/* binding */ MaxHeap)
 /* harmony export */ });
 /* harmony import */ var _utils_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/index.js */ "./src/utils/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1864,7 +1881,27 @@ var MinHeap = /*#__PURE__*/function () {
   }]);
 
   return MinHeap;
-}();
+}(); // 最大堆
+
+var MaxHeap = /*#__PURE__*/function (_MinHeap) {
+  _inherits(MaxHeap, _MinHeap);
+
+  var _super = _createSuper(MaxHeap);
+
+  function MaxHeap() {
+    var _this;
+
+    var compareFn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+
+    _classCallCheck(this, MaxHeap);
+
+    _this = _super.call(this, compareFn);
+    _this.compareFn = (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_0__.reverseCompare)(compareFn);
+    return _this;
+  }
+
+  return MaxHeap;
+}(MinHeap);
 
 /***/ }),
 
@@ -2408,6 +2445,64 @@ var WeakMapStack = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/sort/heap-sort.js":
+/*!*******************************!*\
+  !*** ./src/sort/heap-sort.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ heapSort)
+/* harmony export */ });
+/* harmony import */ var _utils_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/index.js */ "./src/utils/index.js");
+ // 堆化函数
+
+function heapify(array, index, heapSize, compareFn) {
+  var largest = index;
+  var left = 2 * index + 1;
+  var right = 2 * index + 2;
+
+  if (left < heapSize && compareFn(array[left], array[index]) > 0) {
+    largest = left;
+  }
+
+  if (right < heapSize && compareFn(array[right], array[largest]) > 0) {
+    largest = right;
+  }
+
+  if (largest !== index) {
+    (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_0__.swap)(array, index, largest);
+    heapify(array, largest, heapSize, compareFn);
+  }
+} // 构建最大堆
+
+
+function buildMaxHeap(array, compareFn) {
+  for (var i = Math.floor(array.length / 2); i >= 0; i--) {
+    heapify(array, i, array.length, compareFn);
+  }
+
+  return array;
+}
+
+function heapSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+  var heapSize = array.length;
+  buildMaxHeap(array, compareFn); // 交换最大堆中元素，每次交换最大堆根元素和最后一个元素
+  // 并减小堆长度
+  // 不断交换直至堆大小为 1，最大堆完成所有交换，排序完成
+
+  while (heapSize > 1) {
+    (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_0__.swap)(array, 0, --heapSize);
+    heapify(array, 0, heapSize, compareFn);
+  }
+
+  return array;
+}
+
+/***/ }),
+
 /***/ "./src/utils/index.js":
 /*!****************************!*\
   !*** ./src/utils/index.js ***!
@@ -2424,7 +2519,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "defaultToString": () => (/* binding */ defaultToString),
 /* harmony export */   "BalanceFactor": () => (/* binding */ BalanceFactor),
 /* harmony export */   "Colors": () => (/* binding */ Colors),
-/* harmony export */   "swap": () => (/* binding */ swap)
+/* harmony export */   "swap": () => (/* binding */ swap),
+/* harmony export */   "reverseCompare": () => (/* binding */ reverseCompare)
 /* harmony export */ });
 function defaultEquals(a, b) {
   return a === b;
@@ -2510,6 +2606,11 @@ var swap = function swap(array, a, b) {
   var temp = array[a];
   array[a] = array[b];
   array[b] = temp;
+};
+var reverseCompare = function reverseCompare(compareFn) {
+  return function (a, b) {
+    return compareFn(b, a);
+  };
 };
 
 /***/ })
@@ -2611,7 +2712,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _code_19_BinarySearchTree_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./code/19.BinarySearchTree.js */ "./src/code/19.BinarySearchTree.js");
 /* harmony import */ var _code_20_AVLTree_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./code/20.AVLTree.js */ "./src/code/20.AVLTree.js");
 /* harmony import */ var _code_21_RedBlackTree_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./code/21.RedBlackTree.js */ "./src/code/21.RedBlackTree.js");
-/* harmony import */ var _code_22_minHeap_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./code/22.minHeap.js */ "./src/code/22.minHeap.js");
+/* harmony import */ var _code_22_MinHeap_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./code/22.MinHeap.js */ "./src/code/22.MinHeap.js");
+/* harmony import */ var _sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sort/heap-sort.js */ "./src/sort/heap-sort.js");
 
 
 
@@ -2630,15 +2732,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var heap = new _code_22_minHeap_js__WEBPACK_IMPORTED_MODULE_17__.MinHeap();
 
-for (var i = 1; i < 10; i++) {
-  heap.insert(i);
-}
-
-console.log("Extract minimum: ", heap.extract()); // 1
-
-console.log(heap);
+var array = [7, 6, 3, 5, 4, 1, 2];
+console.log('Before sorting: ', array);
+console.log('After sorting: ', (0,_sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__["default"])(array));
 
 })();
 
