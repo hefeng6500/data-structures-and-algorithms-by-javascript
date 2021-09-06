@@ -16,7 +16,11 @@ import { BinarySearchTree } from "./code/19.BinarySearchTree.js";
 import { AVLTree } from "./code/20.AVLTree.js";
 import { RedBlackTree } from "./code/21.RedBlackTree.js";
 import { MaxHeap, MinHeap } from "./code/22.MinHeap.js";
+import heapSort from "./sort/heap-sort.js";
 
+const array = [7, 6, 3, 5, 4, 1, 2];
+console.log('Before sorting: ', array);
+console.log('After sorting: ', heapSort(array));
 
 export {
   LinkList,
