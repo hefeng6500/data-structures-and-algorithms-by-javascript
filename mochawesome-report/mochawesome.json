@@ -1,0 +1,177 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-08T12:46:07.148Z",
+    "end": "2021-09-08T12:46:07.183Z",
+    "duration": 35,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "64dbd858-259c-4fac-bbaf-4f4f9109be20",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c4acb98f-4bbf-4ebb-83fb-06293ed62223",
+          "title": "堆排序测试",
+          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\heap-sort.spec.js",
+          "file": "\\test\\heap-sort.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "堆排序正序测试",
+              "fullTitle": "堆排序测试 堆排序正序测试",
+              "timedOut": false,
+              "duration": 3,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var originData = [72, 16, 5, 234, 23, 92, 109]; // 默认构建最大堆\nvar res = (0, _heapSort[\"default\"])(originData);\nvar expectRes = [5, 16, 23, 72, 92, 109, 234];\n(0, _chai.expect)(res.join(\",\")).to.equal(expectRes.join(\",\"));",
+              "err": {},
+              "uuid": "4541a49f-8872-4697-a7e1-9ddd8caf4bb9",
+              "parentUUID": "c4acb98f-4bbf-4ebb-83fb-06293ed62223",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "堆排序逆序测试",
+              "fullTitle": "堆排序测试 堆排序逆序测试",
+              "timedOut": false,
+              "duration": 2,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var originData = [72, 16, 5, 234, 23, 92, 109]; // 构建最小堆\nvar res = (0, _heapSort[\"default\"])(originData, (0, _utils.reverseCompare)(_utils.defaultCompare));\nvar expectRes = [5, 16, 23, 72, 92, 109, 234];\n(0, _chai.expect)(res.join(\",\")).to.equal(expectRes.reverse().join(\",\"));",
+              "err": {},
+              "uuid": "9ee3dfa4-bb5c-422c-b32d-da4c001a5b85",
+              "parentUUID": "c4acb98f-4bbf-4ebb-83fb-06293ed62223",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4541a49f-8872-4697-a7e1-9ddd8caf4bb9",
+            "9ee3dfa4-bb5c-422c-b32d-da4c001a5b85"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "1719922c-ee81-4468-855f-1aefab65762d",
+          "title": "红黑树单元测试",
+          "fullFile": "C:\\workpalce\\data-structures-and-algorithms-by-javascript\\test\\red-black-tree.spec.js",
+          "file": "\\test\\red-black-tree.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1.测试节点颜色非红即黑",
+              "fullTitle": "红黑树单元测试 1.测试节点颜色非红即黑",
+              "timedOut": false,
+              "duration": 3,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "tree.inOrderTraverse(function (node) {\n  var RED = _index.Colors.RED,\n      BLACK = _index.Colors.BLACK;\n  (0, _chai.expect)([RED, BLACK]).to.include(node.color);\n});",
+              "err": {},
+              "uuid": "ac4ac105-75e2-4928-b454-e3572e974403",
+              "parentUUID": "1719922c-ee81-4468-855f-1aefab65762d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2.测试根节点颜色是黑色",
+              "fullTitle": "红黑树单元测试 2.测试根节点颜色是黑色",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _chai.expect)(tree.root.isRed()).to.equal(false);",
+              "err": {},
+              "uuid": "b16b49b2-3736-4cd9-adf7-4f7de0836ad0",
+              "parentUUID": "1719922c-ee81-4468-855f-1aefab65762d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ac4ac105-75e2-4928-b454-e3572e974403",
+            "b16b49b2-3736-4cd9-adf7-4f7de0836ad0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
