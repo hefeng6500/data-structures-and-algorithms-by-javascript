@@ -2479,6 +2479,20 @@ function heapify(array, index, heapSize, compareFn) {
 
 
 function buildMaxHeap(array, compareFn) {
+  /**
+   * 为什么是 Math.floor(array.length / 2)  ？？？ 书本上的解释是错的！！！
+   * 
+   * 因为 Math.floor(array.length / 2) 是最后一个叶子节点的父节点
+   * 构建最大堆时，只需要对所有的小堆顶进行位置交换即可
+   * 
+   * 此处循环 i 即小堆顶元素下标，
+   * Math.floor(array.length / 2)
+   * Math.floor(array.length / 2) - 1
+   * Math.floor(array.length / 2) - 2
+   * Math.floor(array.length / 2) - 3
+   * ... 依次获取小堆顶
+   * 
+   */
   for (var i = Math.floor(array.length / 2); i >= 0; i--) {
     heapify(array, i, array.length, compareFn);
   }
@@ -2733,7 +2747,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var array = [7, 6, 3, 5, 4, 1, 2];
+var array = [72, 16, 5, 234, 23, 92, 109];
 console.log('Before sorting: ', array);
 console.log('After sorting: ', (0,_sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__["default"])(array));
 
