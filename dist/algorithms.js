@@ -391,6 +391,102 @@ var DoublyCircularLinkedList = /*#__PURE__*/function (_DoublyLinkedList) {
 
 /***/ }),
 
+/***/ "./src/code/11.Queue.js":
+/*!******************************!*\
+  !*** ./src/code/11.Queue.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Queue": () => (/* binding */ Queue)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+// enqueue(element(s))：向队列尾部添加一个（或多个）新的项。
+// dequeue()：移除队列的第一项（即排在队列最前面的项）并返回被移除的元素。
+// peek()：返回队列中第一个元素——最先被添加，也将是最先被移除的元素。队列不做任何变动（不移除元素，只返回元素信息——与Stack 类的peek 方法非常类似）。该方法在其他语言中也可以叫作front 方法。
+// isEmpty()：如果队列中不包含任何元素，返回true，否则返回false
+// size()：返回队列包含的元素个数，与数组的length 属性类似
+var Queue = /*#__PURE__*/function () {
+  function Queue() {
+    _classCallCheck(this, Queue);
+
+    this.count = 0;
+    this.lowestCount = 0;
+    this.items = {};
+  }
+
+  _createClass(Queue, [{
+    key: "enqueue",
+    value: function enqueue(element) {
+      this.items[this.count] = element;
+      this.count++;
+    }
+  }, {
+    key: "dequeue",
+    value: function dequeue() {
+      if (this.isEmpty()) {
+        return;
+      }
+
+      var result = this.items[this.lowestCount];
+      delete this.items[this.lowestCount];
+      this.lowestCount++;
+      return result;
+    }
+  }, {
+    key: "peek",
+    value: function peek() {
+      if (this.isEmpty()) {
+        return;
+      }
+
+      return this.items[this.lowestCount];
+    }
+  }, {
+    key: "isEmpty",
+    value: function isEmpty() {
+      return this.count - this.lowestCount === 0;
+    }
+  }, {
+    key: "size",
+    value: function size() {
+      return this.count - this.lowestCount;
+    }
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.count = 0;
+      this.lowestCount = 0;
+      this.items = {};
+    }
+  }, {
+    key: "toString",
+    value: function toString() {
+      if (this.isEmpty()) {
+        return "";
+      }
+
+      var string = "".concat(this.items[this.lowestCount]);
+
+      for (var i = this.lowestCount + 1; i < this.count - this.lowestCount; i++) {
+        string = "".concat(string, ",").concat(this.items[i]);
+      }
+
+      return string;
+    }
+  }]);
+
+  return Queue;
+}();
+
+/***/ }),
+
 /***/ "./src/code/13.Set.js":
 /*!****************************!*\
   !*** ./src/code/13.Set.js ***!
@@ -1994,6 +2090,65 @@ var Graph = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/code/24.breadth-first-search.js":
+/*!*********************************************!*\
+  !*** ./src/code/24.breadth-first-search.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "breadthFirstSearch": () => (/* binding */ breadthFirstSearch)
+/* harmony export */ });
+/* harmony import */ var _code_11_Queue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../code/11.Queue */ "./src/code/11.Queue.js");
+
+var Colors = {
+  WHITE: 0,
+  GREY: 1,
+  BLACK: 2
+};
+
+var initializeColor = function initializeColor(vertices) {
+  var color = {};
+
+  for (var i = 0; i < vertices.length; i++) {
+    color[vertices[i]] = Colors.WHITE;
+  }
+
+  return color;
+};
+
+var breadthFirstSearch = function breadthFirstSearch(graph, startVertex, callback) {
+  var vertices = graph.getVertices();
+  var adjList = graph.getAdjList();
+  var color = initializeColor(vertices);
+  var queue = new _code_11_Queue__WEBPACK_IMPORTED_MODULE_0__.Queue();
+  queue.enqueue(startVertex);
+
+  while (!queue.isEmpty()) {
+    var u = queue.dequeue();
+    var neighbors = adjList.get(u);
+    color[u] = Colors.GREY; // 将 u 元素的字典数据全部访问完成，再将 u 设置为完全访问(black)
+
+    for (var i = 0; i < neighbors.length; i++) {
+      var w = neighbors[i]; // 如果 u 字典里面的元素没有被访问过，则设置为访问过（灰色），再将该元素进入队列
+
+      if (color[w] === Colors.WHITE) {
+        color[w] = Colors.GREY;
+        queue.enqueue(w);
+      }
+    }
+
+    color[u] = Colors.BLACK;
+
+    if (callback) {
+      callback(u);
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./src/code/3.CircularLinkedList.js":
 /*!******************************************!*\
   !*** ./src/code/3.CircularLinkedList.js ***!
@@ -2817,7 +2972,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _code_21_RedBlackTree_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./code/21.RedBlackTree.js */ "./src/code/21.RedBlackTree.js");
 /* harmony import */ var _code_22_MinHeap_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./code/22.MinHeap.js */ "./src/code/22.MinHeap.js");
 /* harmony import */ var _sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sort/heap-sort.js */ "./src/sort/heap-sort.js");
-/* harmony import */ var _src_code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../src/code/23.Graph.js */ "./src/code/23.Graph.js");
+/* harmony import */ var _code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./code/23.Graph.js */ "./src/code/23.Graph.js");
+/* harmony import */ var _code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./code/24.breadth-first-search.js */ "./src/code/24.breadth-first-search.js");
 
 
 
@@ -2838,6 +2994,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var graph = new _code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__.Graph();
+var myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+
+for (var i = 0; i < myVertices.length; i++) {
+  graph.addVertex(myVertices[i]);
+}
+
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("A", "D");
+graph.addEdge("C", "D");
+graph.addEdge("C", "G");
+graph.addEdge("D", "G");
+graph.addEdge("D", "H");
+graph.addEdge("B", "E");
+graph.addEdge("B", "F");
+graph.addEdge("E", "I");
+
+var printVertex = function printVertex(value) {
+  console.log("Visited vertex: " + value);
+};
+
+(0,_code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__.breadthFirstSearch)(graph, myVertices[0], printVertex);
 
 })();
 

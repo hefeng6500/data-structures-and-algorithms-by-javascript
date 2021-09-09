@@ -1,3 +1,15 @@
+# [3.8.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.7.0...v3.8.0) (2021-09-09)
+
+
+### Bug Fixes
+
+* 图广度优先遍历单元测试 ([469dd32](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/469dd326b9e99dc096af218eaa31f3b91e5a46db))
+
+
+### Features
+
+* 图的遍历，广度优先 ([31b0a9d](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/31b0a9dfaabdca1f55cbe24b854c26965598d621))
+
 # [3.7.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.6.0...v3.7.0) (2021-09-09)
 
 
