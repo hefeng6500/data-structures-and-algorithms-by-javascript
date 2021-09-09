@@ -1,3 +1,15 @@
+# [3.7.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.6.0...v3.7.0) (2021-09-09)
+
+
+### Bug Fixes
+
+* add graph test ([184f085](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/184f08523cd3376171f087e51d3bd5e501a855fa))
+
+
+### Features
+
+* Graph ([d62665d](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/d62665d3885922cfed54d63bfaf635ed11f3010c))
+
 # [3.6.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.5.0...v3.6.0) (2021-09-08)
 
 

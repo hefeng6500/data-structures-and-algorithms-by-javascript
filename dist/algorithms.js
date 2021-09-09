@@ -1905,6 +1905,95 @@ var MaxHeap = /*#__PURE__*/function (_MinHeap) {
 
 /***/ }),
 
+/***/ "./src/code/23.Graph.js":
+/*!******************************!*\
+  !*** ./src/code/23.Graph.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Graph": () => (/* binding */ Graph)
+/* harmony export */ });
+/* harmony import */ var _code_14_Dictionary_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../code/14.Dictionary.js */ "./src/code/14.Dictionary.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var Graph = /*#__PURE__*/function () {
+  function Graph() {
+    var isDirected = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+    _classCallCheck(this, Graph);
+
+    this.isDirected = isDirected;
+    this.vertices = [];
+    this.adjList = new _code_14_Dictionary_js__WEBPACK_IMPORTED_MODULE_0__.Dictionary();
+  }
+
+  _createClass(Graph, [{
+    key: "addVertex",
+    value: function addVertex(v) {
+      if (!this.vertices.includes(v)) {
+        this.vertices.push(v);
+        this.adjList.set(v, []);
+      }
+    }
+  }, {
+    key: "addEdge",
+    value: function addEdge(v, w) {
+      if (!this.adjList.get(v)) {
+        this.addVertex(v);
+      }
+
+      if (!this.adjList.get(w)) {
+        this.addVertex(w);
+      }
+
+      this.adjList.get(v).push(w);
+
+      if (!this.isDirected) {
+        this.adjList.get(w).push(v);
+      }
+    }
+  }, {
+    key: "getVertices",
+    value: function getVertices() {
+      return this.vertices;
+    }
+  }, {
+    key: "getAdjList",
+    value: function getAdjList() {
+      return this.adjList;
+    }
+  }, {
+    key: "toString",
+    value: function toString() {
+      var s = "";
+
+      for (var i = 0; i < this.vertices.length; i++) {
+        s += "".concat(this.vertices[i], " -> ");
+        var neighbors = this.adjList.get(this.vertices[i]);
+
+        for (var j = 0; j < neighbors.length; j++) {
+          s += "".concat(neighbors[j], " ");
+        }
+
+        s += "\n";
+      }
+
+      return s;
+    }
+  }]);
+
+  return Graph;
+}();
+
+/***/ }),
+
 /***/ "./src/code/3.CircularLinkedList.js":
 /*!******************************************!*\
   !*** ./src/code/3.CircularLinkedList.js ***!
@@ -2728,6 +2817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _code_21_RedBlackTree_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./code/21.RedBlackTree.js */ "./src/code/21.RedBlackTree.js");
 /* harmony import */ var _code_22_MinHeap_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./code/22.MinHeap.js */ "./src/code/22.MinHeap.js");
 /* harmony import */ var _sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sort/heap-sort.js */ "./src/sort/heap-sort.js");
+/* harmony import */ var _src_code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../src/code/23.Graph.js */ "./src/code/23.Graph.js");
 
 
 
@@ -2747,9 +2837,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var array = [72, 16, 5, 234, 23, 92, 109];
-console.log('Before sorting: ', array);
-console.log('After sorting: ', (0,_sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__["default"])(array));
+
 
 })();
 
