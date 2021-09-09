@@ -17,7 +17,31 @@ import { AVLTree } from "./code/20.AVLTree.js";
 import { RedBlackTree } from "./code/21.RedBlackTree.js";
 import { MaxHeap, MinHeap } from "./code/22.MinHeap.js";
 import heapSort from "./sort/heap-sort.js";
-import { Graph } from "../src/code/23.Graph.js";
+import { Graph } from "./code/23.Graph.js";
+import { breadthFirstSearch } from "./code/24.breadth-first-search.js";
+
+const graph = new Graph();
+const myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+
+for (let i = 0; i < myVertices.length; i++) {
+  graph.addVertex(myVertices[i]);
+}
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("A", "D");
+graph.addEdge("C", "D");
+graph.addEdge("C", "G");
+graph.addEdge("D", "G");
+graph.addEdge("D", "H");
+graph.addEdge("B", "E");
+graph.addEdge("B", "F");
+graph.addEdge("E", "I");
+
+const printVertex = (value) => {
+  console.log("Visited vertex: " + value);
+};
+
+breadthFirstSearch(graph, myVertices[0], printVertex);
 
 export {
   LinkList,
