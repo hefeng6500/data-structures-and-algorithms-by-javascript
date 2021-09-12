@@ -18,7 +18,7 @@ import { RedBlackTree } from "./code/21.RedBlackTree.js";
 import { MaxHeap, MinHeap } from "./code/22.MinHeap.js";
 import heapSort from "./sort/heap-sort.js";
 import { Graph } from "./code/23.Graph.js";
-import { breadthFirstSearch } from "./code/24.breadth-first-search.js";
+import { breadthFirstSearch, BFS } from "./code/24.breadth-first-search.js";
 
 const graph = new Graph();
 const myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
@@ -42,6 +42,31 @@ const printVertex = (value) => {
 };
 
 breadthFirstSearch(graph, myVertices[0], printVertex);
+
+const shortestPathA = BFS(graph, myVertices[0]);
+
+console.log(shortestPathA);
+
+const fromVertex = myVertices[0];
+
+for (let i = 1; i < myVertices.length; i++) {
+  const toVertex = myVertices[i];
+  const path = new Stack();
+
+  for (let v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
+    path.push(v);
+  }
+
+  path.push(fromVertex);
+
+  let s = path.pop();
+
+  while (!path.isEmpty()) {
+    s += " - " + path.pop();
+  }
+  
+  console.log(s);
+}
 
 export {
   LinkList,
