@@ -2098,7 +2098,8 @@ var Graph = /*#__PURE__*/function () {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "breadthFirstSearch": () => (/* binding */ breadthFirstSearch)
+/* harmony export */   "breadthFirstSearch": () => (/* binding */ breadthFirstSearch),
+/* harmony export */   "BFS": () => (/* binding */ BFS)
 /* harmony export */ });
 /* harmony import */ var _code_11_Queue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../code/11.Queue */ "./src/code/11.Queue.js");
 
@@ -2145,6 +2146,45 @@ var breadthFirstSearch = function breadthFirstSearch(graph, startVertex, callbac
       callback(u);
     }
   }
+};
+var BFS = function BFS(graph, startVertex) {
+  var vertices = graph.getVertices();
+  var adjList = graph.getAdjList();
+  var color = initializeColor(vertices);
+  var queue = new _code_11_Queue__WEBPACK_IMPORTED_MODULE_0__.Queue();
+  var distances = {};
+  var predecessors = {};
+  queue.enqueue(startVertex);
+
+  for (var i = 0; i < vertices.length; i++) {
+    distances[vertices[i]] = 0;
+    predecessors[vertices[i]] = null;
+  }
+
+  while (!queue.isEmpty()) {
+    var u = queue.dequeue();
+    var neighbors = adjList.get(u);
+    color[u] = Colors.GREY;
+
+    for (var _i = 0; _i < neighbors.length; _i++) {
+      var w = neighbors[_i];
+
+      if (color[w] === Colors.WHITE) {
+        color[w] = Colors.GREY;
+        distances[w] = distances[u] + 1;
+        predecessors[w] = u;
+        queue.enqueue(w);
+      }
+    }
+
+    color[u] = Colors.BLACK;
+  }
+
+  return {
+    distances: distances,
+    predecessors: predecessors // 前溯点数组
+
+  };
 };
 
 /***/ }),
@@ -3018,6 +3058,28 @@ var printVertex = function printVertex(value) {
 };
 
 (0,_code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__.breadthFirstSearch)(graph, myVertices[0], printVertex);
+var shortestPathA = (0,_code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__.BFS)(graph, myVertices[0]);
+console.log(shortestPathA);
+var fromVertex = myVertices[0];
+
+for (var _i = 1; _i < myVertices.length; _i++) {
+  var toVertex = myVertices[_i];
+  var path = new _code_6_array_stack_js__WEBPACK_IMPORTED_MODULE_5__.Stack();
+
+  for (var v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
+    path.push(v);
+  }
+
+  path.push(fromVertex);
+  var s = path.pop();
+
+  while (!path.isEmpty()) {
+    s += " - " + path.pop();
+  }
+
+  console.log(s);
+}
+
 
 })();
 
