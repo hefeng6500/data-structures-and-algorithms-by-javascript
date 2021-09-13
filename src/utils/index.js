@@ -85,3 +85,11 @@ export const swap = (array, a, b) => {
 export const reverseCompare = (compareFn) => {
   return (a, b) => compareFn(b, a);
 };
+
+export const createNonSortedArray = (size) => {
+  const array = [];
+  for (let i = size; i > 0; i--) {
+    array.push(i);
+  }
+  return array;
+};
