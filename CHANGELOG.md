@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.9.0...v3.10.0) (2021-09-13)
+
+
+### Features
+
+* 冒泡排序 ([c0ae290](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/c0ae290597c398016b07891075259b4a0e4a33ae))
+
 # [3.9.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.8.0...v3.9.0) (2021-09-12)
 
 
