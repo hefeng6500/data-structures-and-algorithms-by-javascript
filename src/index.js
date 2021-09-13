@@ -20,6 +20,7 @@ import heapSort from "./sort/heap-sort.js";
 import { Graph } from "./code/23.Graph.js";
 import { breadthFirstSearch, BFS } from "./code/24.breadth-first-search.js";
 import { bubbleSort } from "./sort/bubble-sort.js";
+import { selectionSort } from "./sort/selection-sort.js";
 
 function createNonSortedArray(size) {
   const array = [];
@@ -31,7 +32,7 @@ function createNonSortedArray(size) {
 
 let array = createNonSortedArray(5);
 console.log(array);
-let result = bubbleSort(array);
+let result = selectionSort(array);
 
 
 console.log(result);
