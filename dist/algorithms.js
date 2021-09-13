@@ -2729,6 +2729,37 @@ var WeakMapStack = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/sort/bubble-sort.js":
+/*!*********************************!*\
+  !*** ./src/sort/bubble-sort.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "bubbleSort": () => (/* binding */ bubbleSort)
+/* harmony export */ });
+/* harmony import */ var _utils_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/index.js */ "./src/utils/index.js");
+
+var bubbleSort = function bubbleSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+  var length = array.length;
+
+  for (var i = 0; i < length; i++) {
+    for (var j = 0; j < length - 1 - i; j++) {
+      // length - 1: 两两比较， n 个元素只需要进行 n-1 次比较
+      // length - 1 - i: 再 -i，原因是每轮循环最后一个元素元素其实已经排好序了，不需要再比较
+      if (compareFn(array[j], array[j + 1]) === _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+        (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_0__.swap)(array, j, j + 1);
+      }
+    }
+  }
+
+  return array;
+};
+
+/***/ }),
+
 /***/ "./src/sort/heap-sort.js":
 /*!*******************************!*\
   !*** ./src/sort/heap-sort.js ***!
@@ -2818,7 +2849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "BalanceFactor": () => (/* binding */ BalanceFactor),
 /* harmony export */   "Colors": () => (/* binding */ Colors),
 /* harmony export */   "swap": () => (/* binding */ swap),
-/* harmony export */   "reverseCompare": () => (/* binding */ reverseCompare)
+/* harmony export */   "reverseCompare": () => (/* binding */ reverseCompare),
+/* harmony export */   "createNonSortedArray": () => (/* binding */ createNonSortedArray)
 /* harmony export */ });
 function defaultEquals(a, b) {
   return a === b;
@@ -2909,6 +2941,15 @@ var reverseCompare = function reverseCompare(compareFn) {
   return function (a, b) {
     return compareFn(b, a);
   };
+};
+var createNonSortedArray = function createNonSortedArray(size) {
+  var array = [];
+
+  for (var i = size; i > 0; i--) {
+    array.push(i);
+  }
+
+  return array;
 };
 
 /***/ })
@@ -3014,6 +3055,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sort_heap_sort_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sort/heap-sort.js */ "./src/sort/heap-sort.js");
 /* harmony import */ var _code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./code/23.Graph.js */ "./src/code/23.Graph.js");
 /* harmony import */ var _code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./code/24.breadth-first-search.js */ "./src/code/24.breadth-first-search.js");
+/* harmony import */ var _sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./sort/bubble-sort.js */ "./src/sort/bubble-sort.js");
 
 
 
@@ -3035,51 +3077,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var graph = new _code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__.Graph();
-var myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 
-for (var i = 0; i < myVertices.length; i++) {
-  graph.addVertex(myVertices[i]);
-}
 
-graph.addEdge("A", "B");
-graph.addEdge("A", "C");
-graph.addEdge("A", "D");
-graph.addEdge("C", "D");
-graph.addEdge("C", "G");
-graph.addEdge("D", "G");
-graph.addEdge("D", "H");
-graph.addEdge("B", "E");
-graph.addEdge("B", "F");
-graph.addEdge("E", "I");
+function createNonSortedArray(size) {
+  var array = [];
 
-var printVertex = function printVertex(value) {
-  console.log("Visited vertex: " + value);
-};
-
-(0,_code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__.breadthFirstSearch)(graph, myVertices[0], printVertex);
-var shortestPathA = (0,_code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__.BFS)(graph, myVertices[0]);
-console.log(shortestPathA);
-var fromVertex = myVertices[0];
-
-for (var _i = 1; _i < myVertices.length; _i++) {
-  var toVertex = myVertices[_i];
-  var path = new _code_6_array_stack_js__WEBPACK_IMPORTED_MODULE_5__.Stack();
-
-  for (var v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
-    path.push(v);
+  for (var i = size; i > 0; i--) {
+    array.push(i);
   }
 
-  path.push(fromVertex);
-  var s = path.pop();
-
-  while (!path.isEmpty()) {
-    s += " - " + path.pop();
-  }
-
-  console.log(s);
+  return array;
 }
 
+var array = createNonSortedArray(5);
+console.log(array);
+var result = (0,_sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__.bubbleSort)(array);
+console.log(result);
 
 })();
 
