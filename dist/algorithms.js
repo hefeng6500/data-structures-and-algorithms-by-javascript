@@ -2832,6 +2832,42 @@ function heapSort(array) {
 
 /***/ }),
 
+/***/ "./src/sort/selection-sort.js":
+/*!************************************!*\
+  !*** ./src/sort/selection-sort.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "selectionSort": () => (/* binding */ selectionSort)
+/* harmony export */ });
+/* harmony import */ var _utils_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/index.js */ "./src/utils/index.js");
+
+var selectionSort = function selectionSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+  var length = array.length;
+  var indexMin; // 1、外层循环控制轮数
+
+  for (var i = 0; i < length - 1; i++) {
+    indexMin = i; // 2、内层循环找出最小值
+
+    for (var j = i; j < length; j++) {
+      if (compareFn(array[indexMin], array[j]) === _utils_index_js__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+        indexMin = j;
+      }
+    }
+
+    if (indexMin !== i) {
+      (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_0__.swap)(array, indexMin, i);
+    }
+  }
+
+  return array;
+};
+
+/***/ }),
+
 /***/ "./src/utils/index.js":
 /*!****************************!*\
   !*** ./src/utils/index.js ***!
@@ -3056,6 +3092,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _code_23_Graph_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./code/23.Graph.js */ "./src/code/23.Graph.js");
 /* harmony import */ var _code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./code/24.breadth-first-search.js */ "./src/code/24.breadth-first-search.js");
 /* harmony import */ var _sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./sort/bubble-sort.js */ "./src/sort/bubble-sort.js");
+/* harmony import */ var _sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./sort/selection-sort.js */ "./src/sort/selection-sort.js");
+
 
 
 
@@ -3091,7 +3129,7 @@ function createNonSortedArray(size) {
 
 var array = createNonSortedArray(5);
 console.log(array);
-var result = (0,_sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__.bubbleSort)(array);
+var result = (0,_sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__.selectionSort)(array);
 console.log(result);
 
 })();
