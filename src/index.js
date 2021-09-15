@@ -33,7 +33,7 @@ linklist.push(1);
 // console.log(linklist);
 
 
-console.log(linklist.linklistReverseByRecursion());
+console.log(linklist.linklistReverse());
 
 export {
   LinkList,

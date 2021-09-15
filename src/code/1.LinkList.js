@@ -142,9 +142,10 @@ export class LinkList {
   linklistReverse() {
     let current = this.head.next;
     while (current) {
+      const temp = current.next;
       const node = this.remove(current);
       this.insert(node, 0);
-      current = current.next;
+      current = temp;
     }
 
     return this;
@@ -158,7 +159,7 @@ export class LinkList {
         return this.head;
       }
       const temp = recursion(node.next);
-      node.next = null // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node
+      node.next = null; // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node
       temp.next = node;
       return node;
     };
