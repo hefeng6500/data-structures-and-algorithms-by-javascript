@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.11.1...v3.12.0) (2021-09-15)
+
+
+### Features
+
+* LRU 淘汰缓存算法 ([b42d3ca](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/b42d3cac9679309762163d5d6703c752d87c745a))
+
 ## [3.11.1](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.11.0...v3.11.1) (2021-09-15)
 
 
