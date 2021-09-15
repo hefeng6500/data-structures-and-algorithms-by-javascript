@@ -2,6 +2,52 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./exercise/LRU.js":
+/*!*************************!*\
+  !*** ./exercise/LRU.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "generateLinkList": () => (/* binding */ generateLinkList),
+/* harmony export */   "LRU": () => (/* binding */ LRU)
+/* harmony export */ });
+/* harmony import */ var _src_code_1_LinkList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/code/1.LinkList */ "./src/code/1.LinkList.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+var generateLinkList = function generateLinkList() {
+  new _src_code_1_LinkList__WEBPACK_IMPORTED_MODULE_0__.LinkList();
+};
+var LRU = /*#__PURE__*/function () {
+  function LRU(limitSize) {
+    _classCallCheck(this, LRU);
+
+    this.limitSize = limitSize;
+    this.linklist = new _src_code_1_LinkList__WEBPACK_IMPORTED_MODULE_0__.LinkList();
+  }
+
+  _createClass(LRU, [{
+    key: "add",
+    value: function add(element) {
+      this.linklist.insert(element, 0);
+
+      if (this.linklist.size() > this.limitSize) {
+        this.linklist.removeAt(this.linklist.size() - 1);
+      }
+    }
+  }]);
+
+  return LRU;
+}();
+
+/***/ }),
+
 /***/ "./src/code/1.LinkList.js":
 /*!********************************!*\
   !*** ./src/code/1.LinkList.js ***!
@@ -3131,6 +3177,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _code_24_breadth_first_search_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./code/24.breadth-first-search.js */ "./src/code/24.breadth-first-search.js");
 /* harmony import */ var _sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./sort/bubble-sort.js */ "./src/sort/bubble-sort.js");
 /* harmony import */ var _sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./sort/selection-sort.js */ "./src/sort/selection-sort.js");
+/* harmony import */ var _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../exercise/LRU */ "./exercise/LRU.js");
 
 
 
@@ -3154,14 +3201,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var linklist = new _code_1_LinkList_js__WEBPACK_IMPORTED_MODULE_0__.LinkList();
-linklist.push(5);
-linklist.push(4);
-linklist.push(3);
-linklist.push(2);
-linklist.push(1); // console.log(linklist);
 
-console.log(linklist.linklistReverse());
+var linklist = new _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__.LRU(5);
+linklist.add(1);
+linklist.add(2);
+linklist.add(3);
+linklist.add(4);
+linklist.add(5);
+linklist.add(100);
+linklist.add(200);
+linklist.add(300); // console.log(linklist);
+
+console.log(linklist);
 
 })();
 
