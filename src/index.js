@@ -25,21 +25,19 @@ import { LRU } from "../exercise/LRU";
 
 
 
-const linklist = new LRU(5);
+const linklist = new LinkList();
 
-linklist.add(1);
-linklist.add(2);
-linklist.add(3);
-linklist.add(4);
-linklist.add(5);
-linklist.add(100);
-linklist.add(200);
-linklist.add(300);
-
-// console.log(linklist);
+linklist.push(1);
+linklist.push(2);
+linklist.push(3);
+linklist.push(4);
+linklist.push(5);
+// linklist.push(100);
+// linklist.push(200);
+// linklist.push(300);
 
 
-console.log(linklist);
+console.log(linklist.linklistReverse());
 
 export {
   LinkList,

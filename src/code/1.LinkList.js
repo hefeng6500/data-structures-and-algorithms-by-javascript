@@ -80,10 +80,10 @@ export class LinkList {
   }
 
   // 返回元素在链表中的索引。如果链表中没有该元素则返回-1。
-  indexOf(node) {
+  indexOf(element) {
     let current = this.head;
     for (let i = 0; i < this.count; i++) {
-      if (this.equalsFn(node.element, current.element)) {
+      if (this.equalsFn(element, current.element)) {
         return i;
       }
       current = current.next;
@@ -143,7 +143,7 @@ export class LinkList {
     let current = this.head.next;
     while (current) {
       const temp = current.next;
-      const node = this.remove(current);
+      const node = this.remove(current.element);
       this.insert(node, 0);
       current = temp;
     }
