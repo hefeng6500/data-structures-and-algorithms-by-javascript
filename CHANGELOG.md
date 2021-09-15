@@ -1,3 +1,10 @@
+## [3.12.1](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.12.0...v3.12.1) (2021-09-15)
+
+
+### Bug Fixes
+
+* 修复链表反转 ([b3e7051](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/commit/b3e7051ddbab1b529f564929448aab24fb908271))
+
 # [3.12.0](https://github.com/hefeng6500/data-structures-and-algorithms-by-javascript/compare/v3.11.1...v3.12.0) (2021-09-15)
 
 
