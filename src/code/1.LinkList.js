@@ -154,12 +154,14 @@ export class LinkList {
   // 链表反转-递归
   linklistReverseByRecursion() {
     const recursion = (node) => {
+      // 递归终止条件
       if (!node.next) {
         this.head = node;
         return this.head;
       }
       const temp = recursion(node.next);
-      node.next = null; // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node
+
+      node.next = null; // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node（递推公式）
       temp.next = node;
       return node;
     };
