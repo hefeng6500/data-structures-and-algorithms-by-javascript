@@ -119,11 +119,11 @@ var LinkList = /*#__PURE__*/function () {
 
   }, {
     key: "indexOf",
-    value: function indexOf(element) {
+    value: function indexOf(node) {
       var current = this.head;
 
       for (var i = 0; i < this.count; i++) {
-        if (this.equalsFn(element, current.element)) {
+        if (this.equalsFn(node.element, current.element)) {
           return i;
         }
 
@@ -189,6 +189,44 @@ var LinkList = /*#__PURE__*/function () {
       }
 
       return objString;
+    } // 链表反转-循环
+
+  }, {
+    key: "linklistReverse",
+    value: function linklistReverse() {
+      var current = this.head.next;
+
+      while (current) {
+        var temp = current.next;
+        var node = this.remove(current);
+        this.insert(node, 0);
+        current = temp;
+      }
+
+      return this;
+    } // 链表反转-递归
+
+  }, {
+    key: "linklistReverseByRecursion",
+    value: function linklistReverseByRecursion() {
+      var _this = this;
+
+      var recursion = function recursion(node) {
+        // 递归终止条件
+        if (!node.next) {
+          _this.head = node;
+          return _this.head;
+        }
+
+        var temp = recursion(node.next);
+        node.next = null; // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node（递推公式）
+
+        temp.next = node;
+        return node;
+      };
+
+      recursion(this.head);
+      return this;
     }
   }]);
 
@@ -3116,21 +3154,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var linklist = new _code_1_LinkList_js__WEBPACK_IMPORTED_MODULE_0__.LinkList();
+linklist.push(5);
+linklist.push(4);
+linklist.push(3);
+linklist.push(2);
+linklist.push(1); // console.log(linklist);
 
-function createNonSortedArray(size) {
-  var array = [];
-
-  for (var i = size; i > 0; i--) {
-    array.push(i);
-  }
-
-  return array;
-}
-
-var array = createNonSortedArray(5);
-console.log(array);
-var result = (0,_sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__.selectionSort)(array);
-console.log(result);
+console.log(linklist.linklistReverse());
 
 })();
 
