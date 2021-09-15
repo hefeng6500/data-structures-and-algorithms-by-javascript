@@ -80,10 +80,10 @@ export class LinkList {
   }
 
   // 返回元素在链表中的索引。如果链表中没有该元素则返回-1。
-  indexOf(element) {
+  indexOf(node) {
     let current = this.head;
     for (let i = 0; i < this.count; i++) {
-      if (this.equalsFn(element, current.element)) {
+      if (this.equalsFn(node.element, current.element)) {
         return i;
       }
       current = current.next;
@@ -136,5 +136,35 @@ export class LinkList {
       current = current.next;
     }
     return objString;
+  }
+
+  // 链表反转-循环
+  linklistReverse() {
+    let current = this.head.next;
+    while (current) {
+      const node = this.remove(current);
+      this.insert(node, 0);
+      current = current.next;
+    }
+
+    return this;
+  }
+
+  // 链表反转-递归
+  linklistReverseByRecursion() {
+    const recursion = (node) => {
+      if (!node.next) {
+        this.head = node;
+        return this.head;
+      }
+      const temp = recursion(node.next);
+      node.next = null // 先清除掉 node 的 next 指针指向，递归时为了反向 next， 即 recursion(node).next = node
+      temp.next = node;
+      return node;
+    };
+
+    recursion(this.head);
+
+    return this;
   }
 }

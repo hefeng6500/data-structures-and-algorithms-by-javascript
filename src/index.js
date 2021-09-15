@@ -22,20 +22,18 @@ import { breadthFirstSearch, BFS } from "./code/24.breadth-first-search.js";
 import { bubbleSort } from "./sort/bubble-sort.js";
 import { selectionSort } from "./sort/selection-sort.js";
 
-function createNonSortedArray(size) {
-  const array = [];
-  for (let i = size; i > 0; i--) {
-    array.push(i);
-  }
-  return array;
-}
+const linklist = new LinkList();
 
-let array = createNonSortedArray(5);
-console.log(array);
-let result = selectionSort(array);
+linklist.push(5);
+linklist.push(4);
+linklist.push(3);
+linklist.push(2);
+linklist.push(1);
+
+// console.log(linklist);
 
 
-console.log(result);
+console.log(linklist.linklistReverseByRecursion());
 
 export {
   LinkList,
