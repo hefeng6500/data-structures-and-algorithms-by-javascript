@@ -9,6 +9,15 @@ export class LRU {
     this.linklist = new LinkList();
   }
 
+  get(element) {
+    const index = this.linklist.indexOf(element);
+
+    if (index !== -1) {
+      this.linklist.removeAt(index);
+      this.linklist.insert(element, 0);
+    }
+  }
+
   add(element) {
     this.linklist.insert(element, 0);
 
