@@ -33,6 +33,16 @@ var LRU = /*#__PURE__*/function () {
   }
 
   _createClass(LRU, [{
+    key: "get",
+    value: function get(element) {
+      var index = this.linklist.indexOf(element);
+
+      if (index !== -1) {
+        this.linklist.removeAt(index);
+        this.linklist.insert(element, 0);
+      }
+    }
+  }, {
     key: "add",
     value: function add(element) {
       this.linklist.insert(element, 0);
@@ -3202,16 +3212,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var linklist = new _code_1_LinkList_js__WEBPACK_IMPORTED_MODULE_0__.LinkList();
-linklist.push(1);
-linklist.push(2);
-linklist.push(3);
-linklist.push(4);
-linklist.push(5); // linklist.push(100);
-// linklist.push(200);
-// linklist.push(300);
-
-console.log(linklist.linklistReverse());
+var linklist = new _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__.LRU(5);
+linklist.add(1);
+linklist.add(2);
+linklist.add(3);
+linklist.add(4);
+linklist.add(5);
+linklist.add(100);
+linklist.get(2);
+linklist.add(200);
+linklist.add(300);
+console.log(linklist);
 
 })();
 
