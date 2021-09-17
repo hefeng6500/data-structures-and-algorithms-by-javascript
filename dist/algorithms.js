@@ -2926,6 +2926,51 @@ function heapSort(array) {
 
 /***/ }),
 
+/***/ "./src/sort/insert-sort.js":
+/*!*********************************!*\
+  !*** ./src/sort/insert-sort.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "insertionSort": () => (/* binding */ insertionSort)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils/index.js");
+
+/**
+ * 插入排序
+ * @param {Array} array 
+ * @param {Function} compareFn 
+ * @returns 
+
+主要思路： 假定第一项已经排序了。接着，
+它和第二项进行比较——第二项是应该待在原位还是插到第一项之前呢？这样，头两项就已正确
+排序，接着和第三项比较（它是该插入到第一、第二还是第三的位置呢），以此类推
+
+ *
+ */
+
+var insertionSort = function insertionSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+
+  for (var i = 1; i < array.length; i++) {
+    var temp = array[i];
+    var j = i;
+
+    while (j > 0 && compareFn(array[j - 1], temp) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+      array[j] = array[j - 1];
+      j--;
+    }
+
+    array[j] = temp;
+  }
+
+  return array;
+};
+
+/***/ }),
+
 /***/ "./src/sort/selection-sort.js":
 /*!************************************!*\
   !*** ./src/sort/selection-sort.js ***!
@@ -3188,6 +3233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sort_bubble_sort_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./sort/bubble-sort.js */ "./src/sort/bubble-sort.js");
 /* harmony import */ var _sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./sort/selection-sort.js */ "./src/sort/selection-sort.js");
 /* harmony import */ var _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../exercise/LRU */ "./exercise/LRU.js");
+/* harmony import */ var _sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sort/insert-sort.js */ "./src/sort/insert-sort.js");
 
 
 
@@ -3212,17 +3258,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var linklist = new _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__.LRU(5);
-linklist.add(1);
-linklist.add(2);
-linklist.add(3);
-linklist.add(4);
-linklist.add(5);
-linklist.add(100);
-linklist.get(2);
-linklist.add(200);
-linklist.add(300);
-console.log(linklist);
+
+var arr = [3, 5, 1, 4, 2];
+console.log((0,_sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__.insertionSort)(arr));
+;
 
 })();
 
