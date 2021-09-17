@@ -22,24 +22,11 @@ import { breadthFirstSearch, BFS } from "./code/24.breadth-first-search.js";
 import { bubbleSort } from "./sort/bubble-sort.js";
 import { selectionSort } from "./sort/selection-sort.js";
 import { LRU } from "../exercise/LRU";
+import { insertionSort } from "./sort/insert-sort.js";
 
+const arr = [3, 5, 1, 4, 2];
 
-
-const linklist = new LRU(5);
-
-linklist.add(1);
-linklist.add(2);
-linklist.add(3);
-linklist.add(4);
-linklist.add(5);
-linklist.add(100);
-
-linklist.get(2)
-linklist.add(200);
-linklist.add(300);
-
-
-console.log(linklist);
+console.log(insertionSort(arr));;
 
 export {
   LinkList,
