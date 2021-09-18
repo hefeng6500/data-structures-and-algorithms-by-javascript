@@ -23,10 +23,11 @@ import { bubbleSort } from "./sort/bubble-sort.js";
 import { selectionSort } from "./sort/selection-sort.js";
 import { LRU } from "../exercise/LRU";
 import { insertionSort } from "./sort/insert-sort.js";
+import { mergeSort } from "./sort/merge-sort.js";
 
 const arr = [3, 5, 1, 4, 2];
 
-console.log(insertionSort(arr));;
+console.log(mergeSort(arr));;
 
 export {
   LinkList,
