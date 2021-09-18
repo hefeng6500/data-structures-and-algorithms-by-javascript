@@ -2971,6 +2971,50 @@ var insertionSort = function insertionSort(array) {
 
 /***/ }),
 
+/***/ "./src/sort/merge-sort.js":
+/*!********************************!*\
+  !*** ./src/sort/merge-sort.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "mergeSort": () => (/* binding */ mergeSort),
+/* harmony export */   "merge": () => (/* binding */ merge)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils/index.js");
+
+var mergeSort = function mergeSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+
+  if (array.length > 1) {
+    var _array = array,
+        length = _array.length;
+    var middle = Math.floor(length / 2);
+    var left = mergeSort(array.slice(0, middle), compareFn);
+    var right = mergeSort(array.slice(middle, length), compareFn);
+    array = merge(left, right, compareFn);
+  } // 直至数组长度为 1 才返回数组
+
+
+  return array;
+};
+var merge = function merge(left, right, compareFn) {
+  var i = 0;
+  var j = 0;
+  var result = [];
+
+  while (i < left.length && j < right.length) {
+    var item = compareFn(left[i], right[j]) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.LESS_THAN ? left[i++] : right[j++];
+    result.push(item);
+  }
+
+  var remain = i < left.length ? left.slice(i) : right.slice(j);
+  return result.concat(remain);
+};
+
+/***/ }),
+
 /***/ "./src/sort/selection-sort.js":
 /*!************************************!*\
   !*** ./src/sort/selection-sort.js ***!
@@ -3234,6 +3278,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sort_selection_sort_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./sort/selection-sort.js */ "./src/sort/selection-sort.js");
 /* harmony import */ var _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../exercise/LRU */ "./exercise/LRU.js");
 /* harmony import */ var _sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sort/insert-sort.js */ "./src/sort/insert-sort.js");
+/* harmony import */ var _sort_merge_sort_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sort/merge-sort.js */ "./src/sort/merge-sort.js");
+
 
 
 
@@ -3260,7 +3306,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var arr = [3, 5, 1, 4, 2];
-console.log((0,_sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__.insertionSort)(arr));
+console.log((0,_sort_merge_sort_js__WEBPACK_IMPORTED_MODULE_25__.mergeSort)(arr));
 ;
 
 })();
