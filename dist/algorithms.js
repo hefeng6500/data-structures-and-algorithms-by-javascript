@@ -3015,6 +3015,102 @@ var merge = function merge(left, right, compareFn) {
 
 /***/ }),
 
+/***/ "./src/sort/quick-sort.js":
+/*!********************************!*\
+  !*** ./src/sort/quick-sort.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "quickSort": () => (/* binding */ quickSort),
+/* harmony export */   "quick": () => (/* binding */ quick),
+/* harmony export */   "median3": () => (/* binding */ median3),
+/* harmony export */   "quickSort2": () => (/* binding */ quickSort2)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils/index.js");
+ // algotithms from https://www.icourse163.org/learn/ZJU-93001?tid=1002654021#/learn/content?type=detail&id=1003627012&cid=1004311523
+
+var quickSort = function quickSort(array) {
+  var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _utils__WEBPACK_IMPORTED_MODULE_0__.defaultCompare;
+  return quick(array, 0, array.length - 1, compareFn);
+};
+var quick = function quick(array, left, right, compareFn) {
+  var pivot = median3(array, left, right, compareFn);
+  var i = left;
+  var j = right - 1;
+
+  while (j >= 0 && i <= array.length && i < j) {
+    while (compareFn(array[++i], pivot) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.LESS_THAN) {}
+
+    while (compareFn(array[--j], pivot) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {}
+
+    if (i < j) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, i, j);
+    }
+  }
+
+  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, i, right - 1);
+
+  if (left < i - 1) {
+    quick(array, left, i - 1, compareFn);
+  }
+
+  if (right > i + 1) {
+    quick(array, i + 1, right, compareFn);
+  }
+
+  return array;
+};
+var median3 = function median3(array, left, right, compareFn) {
+  var center = Math.floor((left + right) / 2);
+
+  if (compareFn(array[left], array[center]) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, left, center);
+  }
+
+  if (compareFn(array[left], array[right]) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, left, right);
+  }
+
+  if (compareFn(array[center], array[right]) === _utils__WEBPACK_IMPORTED_MODULE_0__.Compare.BIGGER_THAN) {
+    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, center, right);
+  }
+
+  (0,_utils__WEBPACK_IMPORTED_MODULE_0__.swap)(array, center, right - 1);
+  return array[right - 1];
+};
+/**
+ * 快速排序
+ * auth by ruanyifeng
+
+ * @param {*} arr 
+ * @returns 
+ */
+
+var quickSort2 = function quickSort2(arr) {
+  if (arr.length < 1) {
+    return arr;
+  }
+
+  var middleIndex = Math.floor(arr.length / 2);
+  var middle = arr.splice(middleIndex, 1);
+  var left = [];
+  var right = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] < middle) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+
+  return quickSort(left).concat(middle, quickSort(right));
+};
+
+/***/ }),
+
 /***/ "./src/sort/selection-sort.js":
 /*!************************************!*\
   !*** ./src/sort/selection-sort.js ***!
@@ -3279,6 +3375,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exercise_LRU__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../exercise/LRU */ "./exercise/LRU.js");
 /* harmony import */ var _sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sort/insert-sort.js */ "./src/sort/insert-sort.js");
 /* harmony import */ var _sort_merge_sort_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sort/merge-sort.js */ "./src/sort/merge-sort.js");
+/* harmony import */ var _sort_quick_sort_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sort/quick-sort.js */ "./src/sort/quick-sort.js");
 
 
 
@@ -3305,9 +3402,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var arr = [3, 5, 1, 4, 2];
-console.log((0,_sort_merge_sort_js__WEBPACK_IMPORTED_MODULE_25__.mergeSort)(arr));
-;
+ // // 快速排序
+// function quickSort(arr) {
+//   if (arr.length < 1) {
+//     return arr;
+//   }
+//   let middleIndex = Math.floor(arr.length / 2);
+//   let middle = arr.splice(middleIndex, 1);
+//   let left = [];
+//   let right = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < middle) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+//   return quickSort(left).concat(middle, quickSort(right));
+// }
+
+var arr = [8, 1, 4, 9, 0, 3, 5, 2, 7, 6];
+console.log((0,_sort_quick_sort_js__WEBPACK_IMPORTED_MODULE_26__.quickSort)(arr));
 
 })();
 
