@@ -6,6 +6,7 @@ import { insertionSort } from "../src/sort/insert-sort";
 import { mergeSort } from "../src/sort/merge-sort";
 import { quickSort } from "../src/sort/quick-sort";
 import { countingSort } from "../src/sort/counting-sort";
+import { bucketSort } from "../src/sort/bucket-sort";
 
 describe("排序测试", () => {
   it("冒泡排序", () => {
@@ -52,6 +53,14 @@ describe("排序测试", () => {
     let array = createNonSortedArray(5);
     let originArray = [...array];
     let result = countingSort(array);
+
+    expect(result.join(",")).to.equal(originArray.reverse().join(","));
+  });
+
+  it("桶排序", () => {
+    let array = createNonSortedArray(5);
+    let originArray = [...array];
+    let result = bucketSort(array);
 
     expect(result.join(",")).to.equal(originArray.reverse().join(","));
   });

@@ -26,10 +26,11 @@ import { insertionSort } from "./sort/insert-sort.js";
 import { mergeSort } from "./sort/merge-sort.js";
 import { quickSort } from "./sort/quick-sort.js";
 import { countingSort } from "./sort/counting-sort.js";
+import { bucketSort } from "./sort/bucket-sort.js";
 
 const arr = [50, 3, 2, 2, 1];
 
-console.log(countingSort(arr));
+console.log(bucketSort(arr));
 
 export {
   LinkList,
