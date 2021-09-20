@@ -25,29 +25,11 @@ import { LRU } from "../exercise/LRU";
 import { insertionSort } from "./sort/insert-sort.js";
 import { mergeSort } from "./sort/merge-sort.js";
 import { quickSort } from "./sort/quick-sort.js";
+import { countingSort } from "./sort/counting-sort.js";
 
-// // 快速排序
-// function quickSort(arr) {
-//   if (arr.length < 1) {
-//     return arr;
-//   }
-//   let middleIndex = Math.floor(arr.length / 2);
-//   let middle = arr.splice(middleIndex, 1);
-//   let left = [];
-//   let right = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] < middle) {
-//       left.push(arr[i]);
-//     } else {
-//       right.push(arr[i]);
-//     }
-//   }
-//   return quickSort(left).concat(middle, quickSort(right));
-// }
+const arr = [50, 3, 2, 2, 1];
 
-const arr = [8, 1, 4, 9, 0, 3, 5, 2, 7, 6];
-
-console.log(quickSort(arr));
+console.log(countingSort(arr));
 
 export {
   LinkList,
