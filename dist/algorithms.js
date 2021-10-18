@@ -2854,6 +2854,136 @@ var bubbleSort = function bubbleSort(array) {
 
 /***/ }),
 
+/***/ "./src/sort/bucket-sort.js":
+/*!*********************************!*\
+  !*** ./src/sort/bucket-sort.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "bucketSort": () => (/* binding */ bucketSort)
+/* harmony export */ });
+/* harmony import */ var _insert_sort__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./insert-sort */ "./src/sort/insert-sort.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+var bucketSort = function bucketSort(array) {
+  var bucketSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+
+  if (array.length < 2) {
+    return array;
+  }
+
+  var buckets = createBuckets(array, bucketSize);
+  return sortBuckets(buckets);
+};
+
+function createBuckets(array, bucketSize) {
+  var minValue = array[0];
+  var maxValue = array[0];
+
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] < minValue) {
+      minValue = array[i];
+    } else if (array[i] > maxValue) {
+      maxValue = array[i];
+    }
+  }
+
+  var bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+  var buckets = [];
+
+  for (var _i = 0; _i < bucketCount; _i++) {
+    buckets[_i] = [];
+  }
+
+  for (var _i2 = 0; _i2 < array.length; _i2++) {
+    var bucketIndex = Math.floor((array[_i2] - minValue) / bucketSize);
+    buckets[bucketIndex].push(array[_i2]);
+  }
+
+  return buckets;
+}
+
+function sortBuckets(buckets) {
+  var sortedArray = [];
+
+  for (var i = 0; i < buckets.length; i++) {
+    if (buckets[i] != null) {
+      (0,_insert_sort__WEBPACK_IMPORTED_MODULE_0__.insertionSort)(buckets[i]);
+      sortedArray.push.apply(sortedArray, _toConsumableArray(buckets[i]));
+    }
+  }
+
+  return sortedArray;
+}
+
+/***/ }),
+
+/***/ "./src/sort/counting-sort.js":
+/*!***********************************!*\
+  !*** ./src/sort/counting-sort.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "countingSort": () => (/* binding */ countingSort),
+/* harmony export */   "findMaxValue": () => (/* binding */ findMaxValue)
+/* harmony export */ });
+/**
+ * 计数排序，只能对正整数进行排序
+ * @param {*} array 
+ * @returns 
+ */
+var countingSort = function countingSort(array) {
+  if (array.length < 2) {
+    return array;
+  }
+
+  var maxValue = findMaxValue(array);
+  var counts = new Array(maxValue + 1);
+  array.forEach(function (element) {
+    if (!counts[element]) {
+      counts[element] = 0;
+    }
+
+    counts[element]++;
+  });
+  var sortedIndex = 0;
+  counts.forEach(function (count, i) {
+    while (count > 0) {
+      array[sortedIndex++] = i;
+      count--;
+    }
+  });
+  return array;
+};
+var findMaxValue = function findMaxValue(array) {
+  var max = array[0];
+
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+
+  return max;
+};
+
+/***/ }),
+
 /***/ "./src/sort/heap-sort.js":
 /*!*******************************!*\
   !*** ./src/sort/heap-sort.js ***!
@@ -3376,6 +3506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sort_insert_sort_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sort/insert-sort.js */ "./src/sort/insert-sort.js");
 /* harmony import */ var _sort_merge_sort_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sort/merge-sort.js */ "./src/sort/merge-sort.js");
 /* harmony import */ var _sort_quick_sort_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sort/quick-sort.js */ "./src/sort/quick-sort.js");
+/* harmony import */ var _sort_counting_sort_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./sort/counting-sort.js */ "./src/sort/counting-sort.js");
+/* harmony import */ var _sort_bucket_sort_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./sort/bucket-sort.js */ "./src/sort/bucket-sort.js");
 
 
 
@@ -3402,27 +3534,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // // 快速排序
-// function quickSort(arr) {
-//   if (arr.length < 1) {
-//     return arr;
-//   }
-//   let middleIndex = Math.floor(arr.length / 2);
-//   let middle = arr.splice(middleIndex, 1);
-//   let left = [];
-//   let right = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] < middle) {
-//       left.push(arr[i]);
-//     } else {
-//       right.push(arr[i]);
-//     }
-//   }
-//   return quickSort(left).concat(middle, quickSort(right));
-// }
 
-var arr = [8, 1, 4, 9, 0, 3, 5, 2, 7, 6];
-console.log((0,_sort_quick_sort_js__WEBPACK_IMPORTED_MODULE_26__.quickSort)(arr));
+
+
+var arr = [50, 3, 2, 2, 1];
+console.log((0,_sort_bucket_sort_js__WEBPACK_IMPORTED_MODULE_28__.bucketSort)(arr));
 
 })();
 
