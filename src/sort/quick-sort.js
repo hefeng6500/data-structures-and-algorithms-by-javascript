@@ -7,9 +7,12 @@ export const quickSort = (array, compareFn = defaultCompare) => {
 };
 
 export const quick = (array, left, right, compareFn) => {
+  // 选择主元
   const pivot = median3(array, left, right, compareFn);
-  let i = left;
-  let j = right - 1;
+  console.log("array", array , "pivot", pivot);
+
+  let i = left; // 左指针
+  let j = right - 1; // 右指针
 
   while (j >= 0 && i <= array.length && i < j) {
     while (compareFn(array[++i], pivot) === Compare.LESS_THAN) {}
@@ -20,12 +23,16 @@ export const quick = (array, left, right, compareFn) => {
     }
   }
 
+  // 将 i 的位置元素与主元进行交换，此时主元就（一次性的）回到了它正确的位置
   swap(array, i, right - 1);
 
+  console.log("array:", array, "i: ", i, "j: ", j);
   if (left < i - 1) {
     quick(array, left, i - 1, compareFn);
   }
   if (right > i + 1) {
+
+    
     quick(array, i + 1, right, compareFn);
   }
 
@@ -44,6 +51,8 @@ export const median3 = (array, left, right, compareFn) => {
     swap(array, center, right);
   }
 
+  // center 就是主元，主元选择完成后，将它放在 right - 1 位置上
+  // 后续只要比较 left + 1 到 right - 2 位置的值了
   swap(array, center, right - 1);
 
   return array[right - 1];
@@ -72,5 +81,5 @@ export const quickSort2 = (arr) => {
       right.push(arr[i]);
     }
   }
-  return quickSort(left).concat(middle, quickSort(right));
+  return quickSort2(left).concat(middle, quickSort(right));
 };

@@ -28,9 +28,9 @@ import { quickSort } from "./sort/quick-sort.js";
 import { countingSort } from "./sort/counting-sort.js";
 import { bucketSort } from "./sort/bucket-sort.js";
 
-const arr = [50, 3, 2, 2, 1];
+const arr = [44, 12, 59, 36, 62, 43, 94, 7, 35, 52, 85];
 
-console.log(bucketSort(arr));
+console.log(quickSort(arr));
 
 export {
   LinkList,
